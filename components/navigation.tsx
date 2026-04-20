@@ -35,16 +35,16 @@ export function Navigation({ currentView, onNavigate, huertaCount }: NavigationP
         {/* Navigation */}
         <nav className="flex items-center gap-1 sm:gap-2">
           <button
-            onClick={() => onNavigate(huertaCount > 0 ? 'mi-huerta' : 'catalogo')}
+            onClick={() => onNavigate('catalogo')}
             className={cn(
               'flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-              (huertaCount > 0 ? currentView === 'mi-huerta' : currentView === 'catalogo' || currentView === 'detalle')
+              currentView === 'catalogo' || currentView === 'detalle'
                 ? 'bg-primary text-primary-foreground'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground'
             )}
           >
             <BookOpen className="h-4 w-4" />
-            <span className="hidden sm:inline">{huertaCount > 0 ? 'Mi Huerta' : 'Agregar Planta'}</span>
+            <span className="hidden sm:inline">Agregar Planta</span>
           </button>
 
           <button
