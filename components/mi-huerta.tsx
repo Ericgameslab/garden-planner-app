@@ -101,17 +101,7 @@ export function MiHuerta({ cultivos, onTogglePlantado, onRemove, onViewCultivo }
               className={item.plantado ? 'border-primary/30 bg-primary/5' : ''}
             >
               <CardContent className="p-4">
-                <div className="flex items-start gap-4">
-                  {/* Checkbox */}
-                  <div className="pt-1">
-                    <Checkbox
-                      id={`planted-${item.cultivoId}`}
-                      checked={item.plantado}
-                      onCheckedChange={() => onTogglePlantado(item.cultivoId)}
-                      className="h-6 w-6"
-                    />
-                  </div>
-
+                <div className="flex items-center justify-between gap-4">
                   {/* Info del cultivo */}
                   <button
                     onClick={() => onViewCultivo(item.cultivoId)}
@@ -137,16 +127,27 @@ export function MiHuerta({ cultivos, onTogglePlantado, onRemove, onViewCultivo }
                     </div>
                   </button>
 
-                  {/* Botón eliminar */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="shrink-0 text-muted-foreground hover:text-destructive"
-                    onClick={() => onRemove(item.cultivoId)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                    <span className="sr-only">Eliminar {cultivo.nombre}</span>
-                  </Button>
+                  {/* Status text, Checkbox and Delete button */}
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {item.plantado ? 'Plantada' : 'Falta Plantar'}
+                    </span>
+                    <Checkbox
+                      id={`planted-${item.cultivoId}`}
+                      checked={item.plantado}
+                      onCheckedChange={() => onTogglePlantado(item.cultivoId)}
+                      className="h-6 w-6"
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="shrink-0 text-muted-foreground hover:text-destructive"
+                      onClick={() => onRemove(item.cultivoId)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                      <span className="sr-only">Eliminar {cultivo.nombre}</span>
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
