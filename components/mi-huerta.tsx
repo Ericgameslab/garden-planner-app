@@ -111,7 +111,7 @@ export function MiHuerta({ cultivos, onTogglePlantado, onRemove, onViewCultivo }
                       {cultivo.emoji}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-semibold text-foreground ${item.plantado ? 'line-through opacity-70' : ''}`}>
+                      <h3 className="font-semibold text-foreground">
                         {cultivo.nombre}
                       </h3>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
